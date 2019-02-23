@@ -1,0 +1,23 @@
+language: c
+os: linux
+dist: xenial
+sudo: false
+
+before_install:
+  - echo "Testing Hello_world"
+
+install:
+- mkdir build
+- cd bin
+- cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON
+
+script: cmake --build .
+
+after_success:
+  - cd build
+  - ./hello_world
+  - echo "Test Success - Branch($TRAVIS_BRANCH)"
+
+notifications:
+  email: false
+
