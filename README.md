@@ -6,7 +6,7 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
 ```bash
     mkdir build
     cd build
-    cmake -DCMAKE_BUILD_TYPE=Release|Debug -DBUILD_SHARED_LIBS=ON|OFF ..
+    cmake -DCMAKE_BUILD_TYPE=Release|Debug ..
     cmake --build .
 ```
 
