@@ -1,4 +1,19 @@
-language: c
+
+matrix:
+  include:
+    - language: c
+      before_script:
+        - cd backend/tests
+      script:
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_c
+
+    - language: c++
+      script:
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_cpp
+
+
 os: linux
 dist: xenial
 sudo: false
@@ -14,13 +29,8 @@ install:
 - cmake .. -DCMAKE_BUILD_TYPE=Release
 - cmake --build .
 
-script:
-  - cd $TRAVIS_BUILD_DIR/bin
-  - ./hello_world_c
-
 after_success:
   - echo "Test Success - Branch($TRAVIS_BRANCH)"
 
 notifications:
   email: false
-

@@ -13,5 +13,6 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
 # Execute the application
 ```bash
     cd build
-    ./hello_world
+    ./hello_world_c
+    ./hello_world_cpp
 ```

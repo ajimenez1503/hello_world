@@ -12,3 +12,6 @@ message(STATUS "Create $CMAKE_RUNTIME_OUTPUT_DIRECTORY folder")
 
 add_executable(hello_world_c "${CMAKE_CURRENT_SOURCE_DIR}/src/src_c/hello_world_c.c")
 message(STATUS "Compiled hello_world_c")
+
+add_executable(hello_world_cpp "${CMAKE_CURRENT_SOURCE_DIR}/src/src_cpp/hello_world_cpp.cpp")
+message(STATUS "Compiled hello_world_cpp")
