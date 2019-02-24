@@ -2,12 +2,9 @@
 matrix:
   include:
     - language: c
-      before_script:
-        - cd backend/tests
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
-
     - language: c++
       script:
         - cd $TRAVIS_BUILD_DIR/bin
