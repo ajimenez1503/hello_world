@@ -12,13 +12,13 @@ install:
 - mkdir build
 - cd build
 - cmake .. -DCMAKE_BUILD_TYPE=Release
+- cmake --build .
 
 script:
-  - cmake --build .
+  - cd $TRAVIS_BUILD_DIR/bin
+  - ./hello_world_c
 
 after_success:
-  - cd $TRAVIS_BUILD_DIR
-  - ./hello_world_c
   - echo "Test Success - Branch($TRAVIS_BRANCH)"
 
 notifications:
