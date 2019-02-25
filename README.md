@@ -12,7 +12,8 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
 
 # Execute the application
 ```bash
-    cd build
+    cd bin
     ./hello_world_c
     ./hello_world_cpp
+    java -cp hello_world_java.jar hello_world_java
 ```
