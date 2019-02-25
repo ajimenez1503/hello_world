@@ -5,7 +5,7 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
-    - language: c++
+    - language: cpp
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
