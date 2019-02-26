@@ -13,6 +13,14 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - java -cp hello_world_java.jar hello_world_java
+    - language: python
+      python:
+        - "2.7"
+        - "3.3"
+        - "3.4"
+      script:
+        - cd $TRAVIS_BUILD_DIR/src/src_python
+        - python hello_world_python
 
 os: linux
 dist: xenial
