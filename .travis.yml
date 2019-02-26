@@ -20,7 +20,7 @@ matrix:
         - "3.4"
       script:
         - cd $TRAVIS_BUILD_DIR/src/src_python
-        - python hello_world_python
+        - python hello_world_python.py
 
 os: linux
 dist: xenial
