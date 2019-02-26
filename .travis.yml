@@ -2,22 +2,45 @@
 matrix:
   include:
     - language: c
+      install:
+        - mkdir build
+        - cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
     - language: cpp
+      install:
+        - mkdir build
+        - cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
     - language: java
+      install:
+        - mkdir build
+        - cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - java -cp hello_world_java.jar hello_world_java
     - language: python
       python:
         - "2.7"
-        - "3.3"
-        - "3.4"
+      install:
+        - pip install -r requirements.txt
+      script:
+        - cd $TRAVIS_BUILD_DIR/src/src_python
+        - python hello_world_python.py
+    - language: python
+      python:
+        - "3.5"
+      install:
+        - pip install -r requirements.txt
       script:
         - cd $TRAVIS_BUILD_DIR/src/src_python
         - python hello_world_python.py
@@ -30,12 +53,6 @@ before_install:
   - echo "Testing Hello_world"
   - cmake -E remove_directory build
   - cmake -E remove_directory bin
-
-install:
-- mkdir build
-- cd build
-- cmake .. -DCMAKE_BUILD_TYPE=Release
-- cmake --build .
 
 after_success:
   - echo "Test Success - Branch($TRAVIS_BRANCH)"
