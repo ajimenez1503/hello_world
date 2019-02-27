@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/softwarejimenez/hello_world.svg?branch=master)](https://travis-ci.org/softwarejimenez/hello_world)
+[![codecov](https://codecov.io/gh/softwarejimenez/hello_world/branch/master/graph/badge.svg)](https://codecov.io/gh/softwarejimenez/hello_world)
 
 # hello_world
 This repository is a hello_world to use different tools as CMake, Travis and CodeCoverage.
