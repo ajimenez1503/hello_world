@@ -3,7 +3,7 @@ if(CMAKE_BUILD_TYPE_LOWER STREQUAL "debug")
     message(STATUS "Debug mode")
     add_executable(hello_world_cppd "${CMAKE_CURRENT_SOURCE_DIR}/hello_world_cpp.cpp")
 
-    option(CODE_COVERAGE "Enable coverage reporting" OFF)
+    SET(CODE_COVERAGE OFF CACHE BOOLEAN "User-specified option to enable coverage reporting")
     if(CODE_COVERAGE)
         message(STATUS "Code Coverage mode")
         target_compile_options(hello_world_cppd PRIVATE
