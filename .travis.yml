@@ -1,37 +1,52 @@
 
 matrix:
   include:
-    - name: "Build release C"
+    - name: "Build Release C"
       language: c
       install:
-        - mkdir -p build
-        - cd build
+        - mkdir -p build && cd build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_C=ON
-        - cmake --build .
+        - cmake --build . --config Release
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
-    - name: "Build release CPP"
+    - name: "Build Release CPP"
       language: cpp
       install:
-        - mkdir -p build
-        - cd build
+        - mkdir -p build && cd build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_CPP=ON
-        - cmake --build .
+        - cmake --build . --config Release
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
-    - name: "Build release JAVA"
+    - name: "Build Debug C"
+      language: c
+      install:
+        - mkdir -p build && cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_C=ON
+        - cmake --build . --config Debug
+      script:
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_cd
+    - name: "Build Debug CPP"
+      language: cpp
+      install:
+        - mkdir -p build && cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON
+        - cmake --build . --config Debug
+      script:
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_cppd
+    - name: "Build Release JAVA"
       language: java
       install:
-        - mkdir -p build
-        - cd build
+        - mkdir -p build && cd build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_JAVA=ON
         - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - java -cp hello_world_java.jar hello_world_java
-    - name: "Build release PYTHON 2.7"
+    - name: "Build Release PYTHON 2.7"
       language: python
       python:
         - "2.7"
@@ -40,7 +55,7 @@ matrix:
         - pip install -r requirements.txt
       script:
         - python hello_world_python.py
-    - name: "Build release PYTHON 3.5"
+    - name: "Build Release PYTHON 3.5"
       language: python
       python:
         - "3.5"
