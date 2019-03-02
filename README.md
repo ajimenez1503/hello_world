@@ -14,17 +14,16 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
 # Compile the application with CMake
 
 ```bash
-    mkdir build
-    cd build
-    cmake -DCMAKE_BUILD_TYPE=Release|Debug ..
-    cmake --build .
+    mkdir -p build && cd build
+    cmake -DCMAKE_BUILD_TYPE=Release|Debug <-DBUILD_C=ON|-DBUILD_CPP=ON|-DBUILD_JAVA=ON> <-DCODE_COVERAGE=ON> ..
+    cmake --build . --config Release|Debug
 ```
 
 # Execute the application
 ```bash
     cd bin
-    ./hello_world_c
-    ./hello_world_cpp
+    ./hello_world_c<d>
+    ./hello_world_cpp<d>
     java -cp hello_world_java.jar hello_world_java
 ```
 
