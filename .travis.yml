@@ -3,27 +3,27 @@ matrix:
   include:
     - language: c
       install:
-        - mkdir build
+        - mkdir -p build
         - cd build
-        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_C=ON
         - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
     - language: cpp
       install:
-        - mkdir build
+        - mkdir -p build
         - cd build
-        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_CPP=ON
         - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
     - language: java
       install:
-        - mkdir build
+        - mkdir -p build
         - cd build
-        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_JAVA=ON
         - cmake --build .
       script:
         - cd $TRAVIS_BUILD_DIR/bin
