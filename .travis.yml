@@ -1,7 +1,8 @@
 
 matrix:
   include:
-    - language: c
+    - name: "Build release C"
+      language: c
       install:
         - mkdir -p build
         - cd build
@@ -10,7 +11,8 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_c
-    - language: cpp
+    - name: "Build release CPP"
+      language: cpp
       install:
         - mkdir -p build
         - cd build
@@ -19,7 +21,8 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
-    - language: java
+    - name: "Build release JAVA"
+      language: java
       install:
         - mkdir -p build
         - cd build
@@ -28,7 +31,8 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - java -cp hello_world_java.jar hello_world_java
-    - language: python
+    - name: "Build release PYTHON 2.7"
+      language: python
       python:
         - "2.7"
       install:
@@ -36,7 +40,8 @@ matrix:
         - pip install -r requirements.txt
       script:
         - python hello_world_python.py
-    - language: python
+    - name: "Build release PYTHON 3.5"
+      language: python
       python:
         - "3.5"
       install:
