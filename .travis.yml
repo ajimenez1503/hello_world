@@ -37,6 +37,17 @@ matrix:
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cppd
+    - name: "Build Debug CPP and Code Coverage"
+      language: cpp
+      install:
+        - mkdir -p build && cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON -DCODE_COVERAGE=ON
+        - cmake --build . --config Debug
+      script:
+        - lcov --directory . --capture --output-file coverage.info
+        - bash <(curl -s https://codecov.io/bash) -f coverage.info
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_cppd
     - name: "Build Release JAVA"
       language: java
       install:
@@ -67,7 +78,10 @@ matrix:
 
 os: linux
 dist: xenial
-sudo: false
+sudo: true
+addons:
+  apt:
+    packages: lcov
 
 before_install:
   - echo "Testing Hello_world"
