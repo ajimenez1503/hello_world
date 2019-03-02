@@ -4,7 +4,7 @@ matrix:
     - name: "Build Release C"
       language: c
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_C=ON
         - cmake --build . --config Release
       script:
@@ -13,7 +13,7 @@ matrix:
     - name: "Build Release CPP"
       language: cpp
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_CPP=ON
         - cmake --build . --config Release
       script:
@@ -22,21 +22,12 @@ matrix:
     - name: "Build Debug C"
       language: c
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_C=ON
         - cmake --build . --config Debug
       script:
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cd
-    - name: "Build Debug CPP"
-      language: cpp
-      install:
-        - mkdir -p build && cd build
-        - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON
-        - cmake --build . --config Debug
-      script:
-        - cd $TRAVIS_BUILD_DIR/bin
-        - ./hello_world_cppd
     - name: "Build Debug C and Code Coverage"
       language: c
       sudo: true
@@ -45,7 +36,7 @@ matrix:
           packages:
             - lcov
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_C=ON -DCODE_COVERAGE=ON
         - cmake --build . --config Debug
       script:
@@ -56,6 +47,15 @@ matrix:
         - lcov --directory . --capture --output-file coverage_c.info
         - bash <(curl -s https://codecov.io/bash) -f coverage_c.info
         - echo "Test Success - Branch($TRAVIS_BRANCH)"
+    - name: "Build Debug CPP"
+      language: cpp
+      install:
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
+        - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON
+        - cmake --build . --config Debug
+      script:
+        - cd $TRAVIS_BUILD_DIR/bin
+        - ./hello_world_cppd
     - name: "Build Debug CPP and Code Coverage"
       language: cpp
       sudo: true
@@ -64,7 +64,7 @@ matrix:
           packages:
             - lcov
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON -DCODE_COVERAGE=ON
         - cmake --build . --config Debug
       script:
@@ -78,7 +78,7 @@ matrix:
     - name: "Build Release JAVA"
       language: java
       install:
-        - mkdir -p build && cd build
+        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_JAVA=ON
         - cmake --build .
       script:
@@ -109,8 +109,8 @@ sudo: false
 
 before_install:
   - echo "Testing Hello_world"
-  - cmake -E remove_directory build
-  - cmake -E remove_directory bin
+  - cmake -E remove_directory $TRAVIS_BUILD_DIR/build
+  - cmake -E remove_directory $TRAVIS_BUILD_DIR/bin
 
 after_success:
   - echo "Test Success - Branch($TRAVIS_BRANCH)"
