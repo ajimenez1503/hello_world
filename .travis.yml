@@ -1,4 +1,3 @@
-
 matrix:
   include:
     - name: "Build Release C"
@@ -106,8 +105,7 @@ sudo: false
 
 before_install:
   - echo "Testing Hello_world"
-  - cmake -E remove_directory $TRAVIS_BUILD_DIR/build
-  - cmake -E remove_directory $TRAVIS_BUILD_DIR/bin
+  - rm -rf $TRAVIS_BUILD_DIR/build $TRAVIS_BUILD_DIR/bin
 
 after_success:
   - echo "Test Success - Branch($TRAVIS_BRANCH)"
