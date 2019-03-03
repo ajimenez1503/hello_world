@@ -1,3 +1,12 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
 build
 bin
-src/src_java/*.class
+gradle/wrapper
+
+# Legacy project files
+.classpath
+.project
+.cproject
+.settings/

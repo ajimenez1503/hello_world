@@ -78,25 +78,9 @@ matrix:
     - name: "Build Release JAVA"
       language: java
       install:
-        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
-        - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_JAVA=ON
-        - cmake --build .
+        - gradle build
       script:
-        - cd $TRAVIS_BUILD_DIR/bin
-        - java -cp hello_world_java.jar hello_world_java
-    - name: "Build Release JAVA and Code Coverage"
-      language: java
-      install:
-        - mkdir -p $TRAVIS_BUILD_DIR/build && cd $TRAVIS_BUILD_DIR/build
-        - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_JAVA=ON
-        - cmake --build .
-      script:
-        - cd $TRAVIS_BUILD_DIR/bin
-        - java -cp hello_world_java.jar hello_world_java
-      after_success:
-        - cd $TRAVIS_BUILD_DIR/build
-        - bash <(curl -s https://codecov.io/bash)
-        - echo "Test Success - Branch($TRAVIS_BRANCH)"
+        - gradle run
     - name: "Build Release PYTHON 2.7"
       language: python
       python:
