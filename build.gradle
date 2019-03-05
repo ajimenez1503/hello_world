@@ -34,15 +34,17 @@ sourceSets {
     }
 }
 
-dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
-}
-
-jacocoTestReport {
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+    additionalSourceDirs = files(sourceSets.main.allSource.srcDirs)
+    sourceDirectories = files(sourceSets.main.allSource.srcDirs)
+    classDirectories =  files(sourceSets.main.output)
     reports {
         xml.enabled true
-        html.enabled false
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+        csv.enabled true
+        html.enabled true
+        html.destination "${buildDir}/reports/jacoco/html"
     }
 }
 
