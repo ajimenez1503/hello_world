@@ -91,7 +91,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR/build/
         - bash <(curl -s https://codecov.io/bash)
         - echo "Test Success - Branch($TRAVIS_BRANCH)"
-    - name: "Build Release PYTHON 2.7"
+    - name: "Running PYTHON 2.7"
       language: python
       python:
         - "2.7"
@@ -100,7 +100,7 @@ matrix:
         - pip install -r requirements.txt
       script:
         - python hello_world_python.py
-    - name: "Build Release PYTHON 3.5"
+    - name: "Running PYTHON 3.5"
       language: python
       python:
         - "3.5"
@@ -109,6 +109,19 @@ matrix:
         - pip install -r requirements.txt
       script:
         - python hello_world_python.py
+    - name: "Running PYTHON 3.5 and Code Coverage"
+      language: python
+      python:
+        - "3.5"
+      install:
+        - pip install codecov
+        - cd $TRAVIS_BUILD_DIR/src/src_python
+        - pip install -r requirements.txt
+      script:
+        - coverage run hello_world_python.py
+      after_success:
+        - codecov
+        - echo "Test Success - Branch($TRAVIS_BRANCH)"
 
 os: linux
 dist: xenial
