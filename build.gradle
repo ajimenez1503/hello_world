@@ -26,6 +26,12 @@ jacoco {
 task codeCoverageReport(type:JacocoReport) {
     executionData run
     sourceSets sourceSets.main
+    reports {
+        xml.enabled true
+        xml.destination file("${buildDir}/reports/report.xml")
+        html.enabled false
+        csv.enabled false
+    }
 }
 
 repositories {
