@@ -17,6 +17,17 @@ plugins {
     id 'jacoco'
 }
 
+jacoco {
+    toolVersion = "0.8.2"
+    reportsDir = file("$buildDir/reports")
+    applyTo run
+}
+
+task codeCoverageReport(type:JacocoReport) {
+    executionData run
+    sourceSets sourceSets.main
+}
+
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -31,20 +42,6 @@ sourceSets {
         resources {
             srcDirs = ['src/src_java/main/resources']
         }
-    }
-}
-
-task codeCoverageReport(type: JacocoReport) {
-    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
-    additionalSourceDirs = files(sourceSets.main.allSource.srcDirs)
-    sourceDirectories = files(sourceSets.main.allSource.srcDirs)
-    classDirectories =  files(sourceSets.main.output)
-    reports {
-        xml.enabled true
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
-        csv.enabled true
-        html.enabled true
-        html.destination "${buildDir}/reports/jacoco/html"
     }
 }
 
