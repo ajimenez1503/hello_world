@@ -1,6 +1,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.org/softwarejimenez/hello_world.svg?branch=master)](https://travis-ci.org/softwarejimenez/hello_world)
 [![codecov](https://codecov.io/gh/softwarejimenez/hello_world/branch/master/graph/badge.svg)](https://codecov.io/gh/softwarejimenez/hello_world)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b796be85572342a5a36af07adcfb4a43)](https://www.codacy.com/app/ajimenez/hello_world?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=softwarejimenez/hello_world&amp;utm_campaign=Badge_Grade)
 
 # hello_world
 This repository is a hello_world to use different tools as CMake, Travis and CodeCoverage.
