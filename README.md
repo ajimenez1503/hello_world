@@ -6,16 +6,16 @@
 # hello_world
 This repository is a hello_world to use different tools as CMake, Travis and CodeCoverage.
 
-# Clone the repository
+## Clone the repository
 
 ```bash
     git clone https://github.com/softwarejimenez/hello_world.git
     cd hello_world
 ```
 
-# C and CPP language
+## C and CPP language
 
-## Compile applications with CMake
+### Compile applications with CMake
 
 ```bash
     mkdir -p build && cd build
@@ -23,30 +23,29 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
     cmake --build . --config Release|Debug
 ```
 
-## Execute the application
+### Execute the C and CPP application
 ```bash
     cd bin
     ./hello_world_c<d>
     ./hello_world_cpp<d>
 ```
 
-# Java language
+## Java language
 
-## Compile applications with Gradle
+### Compile applications with Gradle
 
 ```bash
     gradle build
 ```
 
-## Execute the application
+### Execute the Java application
 ```bash
     gradle run
 ```
 
-# Python language
+## Python language
 
-## Execute the application
-
+### Execute the Python application
 
 ```bash
     cd src/src_python
