@@ -16,6 +16,8 @@ matrix:
         - cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_CPP=ON
         - cmake --build . --config Release
       script:
+        - cd $TRAVIS_BUILD_DIR/build
+        - ctest -V
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cpp
     - name: "Build Debug C"
@@ -53,6 +55,8 @@ matrix:
         - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON
         - cmake --build . --config Debug
       script:
+        - cd $TRAVIS_BUILD_DIR/build
+        - ctest -V
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cppd
     - name: "Build Debug CPP and Code Coverage"
@@ -67,6 +71,8 @@ matrix:
         - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_CPP=ON -DCODE_COVERAGE=ON
         - cmake --build . --config Debug
       script:
+        - cd $TRAVIS_BUILD_DIR/build
+        - ctest -V
         - cd $TRAVIS_BUILD_DIR/bin
         - ./hello_world_cppd
       after_success:
