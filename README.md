@@ -23,6 +23,12 @@ This repository is a hello_world to use different tools as CMake, Travis and Cod
     cmake --build . --config Release|Debug
 ```
 
+### Execute the C and CPP test
+```bash
+    cd build
+    ctest -V
+```
+
 ### Execute the C and CPP application
 ```bash
     cd bin
