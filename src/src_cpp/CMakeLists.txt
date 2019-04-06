@@ -45,6 +45,6 @@ if(BUILD_TESTING)
             "${CMAKE_CURRENT_SOURCE_DIR}/include"
     )
     add_test(
-        NAME test_antonio
+        NAME test
         COMMAND test_cpp)
 endif()

@@ -1,16 +1,13 @@
-#include "hello_world_cpp.h"
+#include "hello_world_c.h"
 
 #define ASSERT_EQUAL_INT( x, y )                                    \
 {                                                                   \
   if( ( (int)x ) != ( (int)y ) )                                    \
   {                                                                 \
-        std::cout << "ASSERT_EQUAL_INT Failed "                     \
-                <<  __PRETTY_FUNCTION__                             \
-                << " in "                                           \
-                << __FILE__                                         \
-                << ":"                                              \
-                << __LINE__                                         \
-                << std::endl;                                       \
+        printf("ASSERT_EQUAL_INT Failed %s in %s:%d \n",            \
+                __FUNCTION__,                                       \
+                __FILE__,                                           \
+                __LINE__);                                          \
         return false;                                               \
   }                                                                 \
 }
@@ -19,13 +16,10 @@
 {                                                                   \
   if( !( condition ) )                                              \
   {                                                                 \
-        std::cout << "ASSERT_TRUE Failed "                          \
-                <<  __PRETTY_FUNCTION__                             \
-                << " in "                                           \
-                << __FILE__                                         \
-                << ":"                                              \
-                << __LINE__                                         \
-                << std::endl;                                       \
+       printf("ASSERT_TRUE Failed %s in %s:%d \n",                  \
+                __FUNCTION__,                                       \
+                __FILE__,                                           \
+                __LINE__);                                          \
         return false;                                               \
   }                                                                 \
 }
@@ -34,13 +28,10 @@
 {                                                                   \
   if( ( condition ) )                                               \
   {                                                                 \
-        std::cout << "ASSERT_FALSE Failed "                         \
-                <<  __PRETTY_FUNCTION__                             \
-                << " in "                                           \
-                << __FILE__                                         \
-                << ":"                                              \
-                << __LINE__                                         \
-                << std::endl;                                       \
+        printf("ASSERT_FALSE Failed %s in %s:%d \n",                \
+                __FUNCTION__,                                       \
+                __FILE__,                                           \
+                __LINE__);                                          \
         return false;                                               \
   }                                                                 \
 }
@@ -55,7 +46,7 @@
 
 #define PRINT_TEST_NAME()                                           \
 {                                                                   \
-  std::cout << "Running: "  <<  __FUNCTION__  << std::endl;         \
+    printf("Running: %s\n", __FUNCTION__);                          \
 }
 
 
@@ -95,7 +86,7 @@ bool test5() {
 }
 
 int main() {
-    std::cout << "Start Tests" <<  std::endl; 
+    printf("Start Tests\n"); 
     ASSERT_RETCODE(test1());
     ASSERT_RETCODE(test2());
     ASSERT_RETCODE(test3());

@@ -9,7 +9,7 @@ bool is_even(int n)
         std::cout << "even" << std::endl;
         return true;
     } else {
-         std::cout << "odd" << std::endl;
+        std::cout << "odd" << std::endl;
         return false;
     }
 }
