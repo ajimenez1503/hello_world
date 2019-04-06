@@ -1,16 +1,5 @@
-#include <iostream>
+#include "hello_world_cpp.h"
 using namespace std;
-
-bool is_even(int n)
-{
-    if (n % 2 == 0) {
-        std::cout << "even" << std::endl;
-        return true;
-    } else {
-         std::cout << "odd" << std::endl;
-        return false;
-    }
-}
 
 int main()
 {

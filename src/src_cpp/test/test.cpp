@@ -1,8 +1,5 @@
-
-
 #include <iostream>
-
-
+#include "hello_world_cpp.h"
 
 #define ASSERT_EQUAL_INT( x, y )                                    \
 {                                                                   \
@@ -18,7 +15,6 @@
         return false;                                               \
   }                                                                 \
 }
-
 
 #define ASSERT_TRUE( condition )                                    \
 {                                                                   \
@@ -58,8 +54,6 @@
   }                                                                 \
 }
 
-
-
 #define PRINT_TEST_NAME()                                           \
 {                                                                   \
   std::cout << "Running: "  <<  __FUNCTION__  << std::endl;         \
@@ -87,11 +81,27 @@ bool test3() {
     return true;
 }
 
+bool test4() {
+    PRINT_TEST_NAME();
+    ASSERT_TRUE(is_even(4));
+
+    return true;
+}
+
+bool test5() {
+    PRINT_TEST_NAME();
+    ASSERT_FALSE(is_even(5));
+
+    return true;
+}
+
 int main() {
      std::cout << "Start Tests" <<  std::endl; 
     ASSERT_RETCODE(test1());
     ASSERT_RETCODE(test2());
     ASSERT_RETCODE(test3());
+    ASSERT_RETCODE(test4());
+    ASSERT_RETCODE(test5());
 
     return 0;
 }
