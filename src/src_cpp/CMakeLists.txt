@@ -4,7 +4,7 @@ if(CMAKE_BUILD_TYPE_LOWER STREQUAL "debug")
     message(STATUS "Debug mode")
     add_executable(hello_world_cppd "${CMAKE_CURRENT_SOURCE_DIR}/src/hello_world_cpp.cpp")
     target_include_directories(
-        hello_world_cpp
+        hello_world_cppd
         PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}/include"
     )
