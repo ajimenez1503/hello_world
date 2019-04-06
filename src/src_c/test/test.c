@@ -5,7 +5,7 @@
   if( ( (int)x ) != ( (int)y ) )                                    \
   {                                                                 \
         printf("ASSERT_EQUAL_INT Failed %s in %s:%d \n",            \
-                __FUNCTION__,                                       \
+                __PRETTY_FUNCTION__,                                \
                 __FILE__,                                           \
                 __LINE__);                                          \
         return false;                                               \
@@ -17,7 +17,7 @@
   if( !( condition ) )                                              \
   {                                                                 \
        printf("ASSERT_TRUE Failed %s in %s:%d \n",                  \
-                __FUNCTION__,                                       \
+                __PRETTY_FUNCTION__,                                \
                 __FILE__,                                           \
                 __LINE__);                                          \
         return false;                                               \
@@ -29,7 +29,7 @@
   if( ( condition ) )                                               \
   {                                                                 \
         printf("ASSERT_FALSE Failed %s in %s:%d \n",                \
-                __FUNCTION__,                                       \
+                __PRETTY_FUNCTION__,                                \
                 __FILE__,                                           \
                 __LINE__);                                          \
         return false;                                               \
